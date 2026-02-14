@@ -2,18 +2,6 @@
 
 let animacionIniciada = false;
 
-let musicaIniciada = false;
-
-function reproducirMusica() {
-  const audio = document.getElementById("bg-music");
-  if (audio && !musicaIniciada) {
-    musicaIniciada = true;
-    audio.volume = 0.6;
-    audio.loop = true;
-    audio.play().catch(() => {});
-  }
-}
-
 /* ================================
    CONTROL DE HORA (8:55 AM)
 ================================ */
@@ -21,7 +9,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(10, 28, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(13, 0, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
@@ -61,8 +49,10 @@ function habilitarContenido() {
   document.querySelector(".tree-container").style.visibility = "visible";
   document.querySelector(".response-container").style.visibility = "visible";
 
-  // 🔥 Mostrar overlay después del conteo
-  mostrarOverlay();
+  if (!animacionIniciada) {
+    animacionIniciada = true;
+    iniciarAnimacion();
+  }
 }
 
 /* ================================
@@ -132,9 +122,9 @@ Solo quería recordarte que te amo demasiado,
 que estoy orgulloso de la mujer que eres
 y que me alegra verte reír.
 
-Queria aprovechar y preguntarte algo…
+Quería aprvechar y preguntarte…
 
-¿Quieres ir a cenar este sábado 14 de febrero conmigo? 🌻`;
+¿Quieres ir a cenar este sábado conmigo? 🌻`;
   } else {
     text = decodeURIComponent(text).replace(/\\n/g, '\n');
   }
@@ -254,39 +244,24 @@ function iniciarContador() {
       `${h}h ${m}m ${s}s`;
   }, 1000);
 }
-function mostrarOverlay() {
-  const overlay = document.getElementById("start-overlay");
-  const audio = document.getElementById("bg-music");
-
-  if (!overlay) return;
-
-  overlay.style.display = "flex";
-
-  overlay.addEventListener("click", () => {
-
-    // 🎵 Iniciar música
-    if (audio) {
-      audio.volume = 0.6;
-      audio.loop = true;
-      audio.play().catch(() => {});
-    }
-
-    overlay.style.display = "none";
-
-    // 🌻 Ahora sí iniciar animación
-    if (!animacionIniciada) {
-      animacionIniciada = true;
-      iniciarAnimacion();
-    }
-
-  }, { once: true });
-}
-
 
 /* ================================
    AUDIO + OVERLAY
 ================================ */
 window.addEventListener("DOMContentLoaded", () => {
   iniciarCuentaRegresiva();
-});
 
+  const overlay = document.getElementById("start-overlay");
+  const audio = document.getElementById("bg-music");
+
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      if (audio) {
+        audio.volume = 0.6;
+        audio.loop = true;
+        audio.play().catch(() => {});
+      }
+      overlay.style.display = "none";
+    });
+  }
+});
