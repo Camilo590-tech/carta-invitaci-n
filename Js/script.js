@@ -21,7 +21,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(10, 22, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(10, 26, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
@@ -60,6 +60,9 @@ function habilitarContenido() {
 
   document.querySelector(".tree-container").style.visibility = "visible";
   document.querySelector(".response-container").style.visibility = "visible";
+
+  // 🔥 Mostrar overlay cuando ya se habilita todo
+  mostrarOverlay();
 
   if (!animacionIniciada) {
     animacionIniciada = true;
@@ -256,24 +259,29 @@ function iniciarContador() {
       `${h}h ${m}m ${s}s`;
   }, 1000);
 }
+function mostrarOverlay() {
+  const overlay = document.getElementById("start-overlay");
+  const audio = document.getElementById("bg-music");
+
+  if (!overlay) return;
+
+  overlay.style.display = "flex";
+
+  overlay.addEventListener("click", () => {
+    if (audio) {
+      audio.volume = 0.6;
+      audio.loop = true;
+      audio.play().catch(() => {});
+    }
+
+    overlay.style.display = "none";
+  }, { once: true });
+}
 
 /* ================================
    AUDIO + OVERLAY
 ================================ */
 window.addEventListener("DOMContentLoaded", () => {
   iniciarCuentaRegresiva();
-
-  const overlay = document.getElementById("start-overlay");
-  const audio = document.getElementById("bg-music");
-
-  if (overlay) {
-    overlay.addEventListener("click", () => {
-      if (audio) {
-        audio.volume = 0.6;
-        audio.loop = true;
-        audio.play().catch(() => {});
-      }
-      overlay.style.display = "none";
-    });
-  }
 });
+
