@@ -9,7 +9,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(15, 30, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(14, 30, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
