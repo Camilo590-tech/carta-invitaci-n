@@ -21,7 +21,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(10, 18, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(10, 22, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
