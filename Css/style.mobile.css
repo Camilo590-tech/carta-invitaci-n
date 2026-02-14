@@ -38,4 +38,19 @@
     text-align: center;
     z-index: 5;
   }
+  @media (max-width: 600px) {
+
+  .tree-container {
+    width: 78vw !important;
+    height: 78vw !important;
+    max-width: 320px;
+    max-height: 320px;
+    top: 42%;
+  }
+
+  .tree-container svg.move-and-scale {
+    /* Menos zoom y menos desplazamiento */
+    transform: translateY(35px) scale(0.95);
+  }
+}
 }
