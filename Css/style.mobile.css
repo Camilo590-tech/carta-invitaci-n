@@ -1,0 +1,41 @@
+@media (max-width: 600px) {
+
+  /* Contenedor principal en columna */
+  .response-container {
+    position: relative;
+    margin-top: 55vh; /* deja espacio para el girasol */
+    padding-bottom: 40px;
+    z-index: 4;
+  }
+
+  /* Texto deja de ser absoluto */
+  .dedication-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Firma normal debajo del texto */
+  .signature {
+    position: relative;
+    margin-top: 24px;
+  }
+
+  /* Botones siempre debajo */
+  #opciones {
+    position: relative;
+    margin-top: 28px;
+  }
+
+  /* Resultado debajo de botones */
+  #resultado {
+    position: relative;
+    margin-top: 24px;
+    text-align: center;
+    z-index: 5;
+  }
+}

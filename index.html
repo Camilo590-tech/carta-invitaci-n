@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de invitación</title>
+
+  <!-- Autoría y derechos -->
+  <meta name="author" content="Zero">
+  <meta name="copyright" content="Zero - Código libre no comercial">
+  <meta name="description" content="Girasol de Amor Animado: una sorpresa interactiva y romántica.">
+  <meta name="keywords" content="amor, sorpresa, romántico, dedicatoria, animación, girasol, pareja">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/style.mobile.css" media="only screen and (max-width: 600px)">
+
+  <style>
+    .tree-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      z-index: 2;
+    }
+
+    .animated-heart {
+      transform-origin: center;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.1); }
+      40% { transform: scale(0.95); }
+      60% { transform: scale(1.08); }
+      80% { transform: scale(1); }
+    }
+
+    /* 🎯 CONTENEDOR DE RESPUESTA */
+    .response-container {
+      margin-top: 40px;
+      text-align: center;
+      z-index: 3;
+    }
+
+    #opciones {
+      margin-top: 25px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.6s ease;
+    }
+
+    #opciones.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #btnSi, #btnNo {
+      font-size: 18px;
+      padding: 12px 28px;
+      margin: 12px;
+      cursor: pointer;
+      border-radius: 30px;
+      border: none;
+    }
+
+    #btnSi {
+      background: #FFD700;
+    }
+
+    #btnNo {
+      background: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="floating-objects"></div>
+
+  <!-- TEXTO + FIRMA + BOTONES -->
+  <div class="response-container">
+    <div class="dedication-text" id="dedication-text">
+      <div class="signature" id="signature"></div>
+    </div>
+
+    <!-- BOTONES (ocultos hasta el final del texto) -->
+    <div id="opciones">
+      <button id="btnSi" onclick="respuestaSi()">💛 Sí</button>
+      <button id="btnNo">💔 No</button>
+    </div>
+
+    <div id="resultado"></div>
+  </div>
+
+  <!-- GIRASOL -->
+  <div class="tree-container" id="tree-container"></div>
+
+<audio id="bg-music" src="Music/Always.mp3" preload="auto"></audio>
+
+
+  <script src="Js/script.js"></script>
+</body>
+<div id="start-overlay">
+  <div class="start-content">
+    <h2>💛 Para ti 💛</h2>
+    <p>Toca para comenzar</p>
+  </div>
+</div>
+
+</html>

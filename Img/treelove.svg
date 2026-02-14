@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- PETALOS -->
+  <g stroke="#C9A000" stroke-width="3" fill="#FFD700">
+    <path d="M200 50  Q215 140 200 215"/>
+    <path d="M245 65  Q230 150 200 215"/>
+    <path d="M290 95  Q250 165 200 215"/>
+    <path d="M325 140 Q255 185 200 215"/>
+    <path d="M345 200 Q265 215 200 215"/>
+    <path d="M325 260 Q255 245 200 215"/>
+    <path d="M290 300 Q250 265 200 215"/>
+    <path d="M245 335 Q230 280 200 215"/>
+    <path d="M200 360 Q215 280 200 215"/>
+    <path d="M155 335 Q170 280 200 215"/>
+    <path d="M110 300 Q150 265 200 215"/>
+    <path d="M75 260  Q145 245 200 215"/>
+    <path d="M55 200  Q135 215 200 215"/>
+    <path d="M75 140  Q145 185 200 215"/>
+    <path d="M110 95  Q150 165 200 215"/>
+    <path d="M155 65  Q170 150 200 215"/>
+  </g>
+
+  <!-- CENTRO -->
+  <g stroke="#5A3A1E" stroke-width="3" fill="#6B3E26">
+    <path d="M200 215 m-45 0
+             a45 45 0 1 0 90 0
+             a45 45 0 1 0 -90 0"/>
+  </g>
+
+  <!-- TALLO -->
+  <path d="M200 260 Q195 350 200 480"
+        stroke="#2E7D32" stroke-width="4" fill="none"/>
+
+  <!-- HOJAS -->
+  <path d="M200 330 Q140 350 120 410 Q150 380 200 360"
+        stroke="#2E7D32" stroke-width="3" fill="#4CAF50"/>
+
+  <path d="M200 360 Q260 380 280 430 Q250 400 200 390"
+        stroke="#2E7D32" stroke-width="3" fill="#4CAF50"/>
+
+</svg>
