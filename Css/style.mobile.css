@@ -53,4 +53,31 @@
     transform: translateY(35px) scale(0.95);
   }
 }
+#waiting-container {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#waiting-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+#waiting-countdown {
+  font-size: 1.2rem;
+  color: #e60026;
+}
+.tree-container,
+.response-container {
+  visibility: hidden;
+}
+
 }
