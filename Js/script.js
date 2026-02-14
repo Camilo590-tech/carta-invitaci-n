@@ -9,7 +9,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(10, 6, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(13, 30, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
@@ -116,15 +116,15 @@ function showDedicationText() {
   let text = getURLParam('text');
 
   if (!text) {
-    text = `Para Mayrunchis:
+    text = `Hola Mayrunchis:
 
 Solo quería recordarte que te amo demasiado,
 que estoy orgulloso de la mujer que eres
 y que me alegra verte reír.
 
-Quería aprvechar y preguntarte…
+Quería aprovechar y preguntarte si…
 
-¿Quieres ir a cenar este sábado conmigo? 🌻`;
+¿Quieres ir a cenar este sábado 14 de febrero conmigo? 🌻`;
   } else {
     text = decodeURIComponent(text).replace(/\\n/g, '\n');
   }
