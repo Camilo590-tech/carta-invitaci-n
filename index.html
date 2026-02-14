@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carta de invitación</title>
 
+  <!-- Autoría y derechos -->
   <meta name="author" content="Zero">
-  <meta name="description" content="Girasol de Amor Animado">
+  <meta name="copyright" content="Zero - Código libre no comercial">
+  <meta name="description" content="Girasol de Amor Animado: una sorpresa interactiva y romántica.">
+  <meta name="keywords" content="amor, sorpresa, romántico, dedicatoria, animación, girasol, pareja">
 
+  <!-- Estilos -->
   <link rel="stylesheet" href="Css/style.css">
   <link rel="stylesheet" href="Css/style.mobile.css" media="only screen and (max-width: 600px)">
 
@@ -20,14 +24,26 @@
       width: 400px;
       height: 400px;
       z-index: 2;
-      visibility: hidden;
     }
 
+    .animated-heart {
+      transform-origin: center;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.1); }
+      40% { transform: scale(0.95); }
+      60% { transform: scale(1.08); }
+      80% { transform: scale(1); }
+    }
+
+    /* 🎯 CONTENEDOR DE RESPUESTA */
     .response-container {
       margin-top: 40px;
       text-align: center;
       z-index: 3;
-      visibility: hidden;
     }
 
     #opciones {
@@ -35,7 +51,6 @@
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.6s ease;
-      display: none;
     }
 
     #opciones.visible {
@@ -52,21 +67,13 @@
       border: none;
     }
 
-    #btnSi { background: #FFD700; }
-    #btnNo { background: #f44336; color: white; }
+    #btnSi {
+      background: #FFD700;
+    }
 
-    /* OVERLAY */
-    #start-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
+    #btnNo {
+      background: #f44336;
       color: white;
-      text-align: center;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -74,15 +81,20 @@
 <body>
 
   <div id="waiting-container">
-    <h2>🌻 Algo especial se abre a las 10:00 am 🌻</h2>
-    <p id="waiting-countdown"></p>
-  </div>
+  <h2>🌻 Algo especial se abre a las 10:00 am 🌻</h2>
+  <p id="waiting-countdown"></p>
+</div>
 
+
+  <div id="floating-objects"></div>
+
+  <!-- TEXTO + FIRMA + BOTONES -->
   <div class="response-container">
     <div class="dedication-text" id="dedication-text">
       <div class="signature" id="signature"></div>
     </div>
 
+    <!-- BOTONES (ocultos hasta el final del texto) -->
     <div id="opciones">
       <button id="btnSi" onclick="respuestaSi()">💛 Sí</button>
       <button id="btnNo">💔 No</button>
@@ -91,17 +103,19 @@
     <div id="resultado"></div>
   </div>
 
+  <!-- GIRASOL -->
   <div class="tree-container" id="tree-container"></div>
 
-  <audio id="bg-music" src="Music/Santa.mp3" preload="auto"></audio>
+<audio id="bg-music" src="Music/Santa.mp3" preload="auto"></audio>
 
-  <div id="start-overlay">
-    <div>
-      <h2>💛 Para ti 💛</h2>
-      <p>Toca para comenzar</p>
-    </div>
-  </div>
 
   <script src="Js/script.js"></script>
 </body>
+<div id="start-overlay">
+  <div class="start-content">
+    <h2>💛 Para ti 💛</h2>
+    <p>Toca para comenzar</p>
+  </div>
+</div>
+
 </html>
