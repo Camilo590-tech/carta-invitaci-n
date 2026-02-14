@@ -2,6 +2,18 @@
 
 let animacionIniciada = false;
 
+let musicaIniciada = false;
+
+function reproducirMusica() {
+  const audio = document.getElementById("bg-music");
+  if (audio && !musicaIniciada) {
+    musicaIniciada = true;
+    audio.volume = 0.6;
+    audio.loop = true;
+    audio.play().catch(() => {});
+  }
+}
+
 /* ================================
    CONTROL DE HORA (8:55 AM)
 ================================ */
@@ -9,7 +21,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(9, 6, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(10, 18, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
@@ -122,9 +134,9 @@ Solo quería recordarte que te amo demasiado,
 que estoy orgulloso de la mujer que eres
 y que me alegra verte reír.
 
-Quería preguntarte algo…
+Queria aprovechar y preguntarte algo…
 
-¿Quieres ir a comer este sábado conmigo? 🌻`;
+¿Quieres ir a cenar este sábado 14 de febrero conmigo? 🌻`;
   } else {
     text = decodeURIComponent(text).replace(/\\n/g, '\n');
   }
