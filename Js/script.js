@@ -21,7 +21,7 @@ function iniciarCuentaRegresiva() {
   const ahora = new Date();
 
   const apertura = new Date();
-  apertura.setHours(10, 26, 0, 0); // ⏰ 8:55 AM
+  apertura.setHours(10, 28, 0, 0); // ⏰ 8:55 AM
 
   // Si ya pasó la hora
   if (ahora >= apertura) {
@@ -61,13 +61,8 @@ function habilitarContenido() {
   document.querySelector(".tree-container").style.visibility = "visible";
   document.querySelector(".response-container").style.visibility = "visible";
 
-  // 🔥 Mostrar overlay cuando ya se habilita todo
+  // 🔥 Mostrar overlay después del conteo
   mostrarOverlay();
-
-  if (!animacionIniciada) {
-    animacionIniciada = true;
-    iniciarAnimacion();
-  }
 }
 
 /* ================================
@@ -268,6 +263,8 @@ function mostrarOverlay() {
   overlay.style.display = "flex";
 
   overlay.addEventListener("click", () => {
+
+    // 🎵 Iniciar música
     if (audio) {
       audio.volume = 0.6;
       audio.loop = true;
@@ -275,8 +272,16 @@ function mostrarOverlay() {
     }
 
     overlay.style.display = "none";
+
+    // 🌻 Ahora sí iniciar animación
+    if (!animacionIniciada) {
+      animacionIniciada = true;
+      iniciarAnimacion();
+    }
+
   }, { once: true });
 }
+
 
 /* ================================
    AUDIO + OVERLAY
